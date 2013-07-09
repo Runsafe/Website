@@ -10,7 +10,7 @@ var dog_admin = {
 	},
 	editResponse: function()
 	{
-		dog_admin.edited.push($(this).parent());
+		dog_admin.edited.push($(this).parent().attr('id'));
 		dog_admin.getResponseInputs(this).css('background-color', '#DBA2A2');
 	},
 	getResponseInputs: function(obj)
@@ -21,7 +21,7 @@ var dog_admin = {
 	{
 		for (node_pointer in dog_admin.edited)
 		{
-			var node = $(dog_admin.edited[node_pointer]);
+			var node = $('#' + dog_admin.edited[node_pointer]);
 
 			PacketHandler.send(Packet.EditDogResponse, {
 				id: node.attr('id'),
@@ -46,7 +46,7 @@ var dog_admin = {
 				var newField = $('#new');
 				newField.children('input').css('background-color', 'white');
 				newField.attr('id', data.success);
-				dog_admin.container.append('<div class="dog-response" id="new"><input type="text" class="pattern"/><input type="text" class="reply"/></div>');
+				dog_admin.newField.clone().appendTo(dog_admin.container);
 			}
 
 		}
@@ -59,6 +59,7 @@ var dog_admin = {
 
 		PacketHandler.hook(Packet.EditDogResponse, dog_admin.handleResponseSave);
 		dog_admin.container = $('#dog-responses');
+		dog_admin.newField = $('<div class="dog-response" id="new"><input type="text" class="pattern"/><input type="text" class="reply"/></div>');
 	},
 	edited: []
 };
