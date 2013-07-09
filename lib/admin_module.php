@@ -3,19 +3,10 @@
 	{
 		public function __construct()
 		{
-			$hasDenied = false;
-
-			if (Authenticator::IsLoggedIn())
-			{
-				if (!Authenticator::IsAdmin())
-				{
-					$hasDenied = true;
-					$this->Deny();
-				}
-			}
-
-			if (!$hasDenied)
+			if (Authenticator::IsAdmin() || !Authenticator::IsLoggedIn())
 				parent::__construct();
+			else
+				$this->Deny();
 		}
 
 		private function Deny()
