@@ -6,4 +6,5 @@
 	ClassLoader::registerPacketHandler(5, 'pvp_buy_item.php', 'PVPBuyItemPacketHandler');
 	ClassLoader::registerPacketHandler(6, 'pvp_signup.php', 'PVPSignupPacketHandler');
 	ClassLoader::registerPacketHandler(7, 'edit_dog_response.php', 'EditDogResponsePacketHandler');
+	ClassLoader::registerPacketHandler(8, 'delete_dog_response.php', 'DeleteDogResponsePacketHandler');
 ?>
