@@ -4,7 +4,12 @@
 		public function __construct()
 		{
 			if (!Authenticator::IsAdmin())
-				$this->Deny();
+			{
+				if(!Authenticator::IsLoggedIn())
+					parent::__construct();
+				else
+					$this->Deny();
+			}
 			else
 				parent::__construct();
 		}
