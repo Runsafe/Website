@@ -10,7 +10,10 @@ var dog_admin = {
 	},
 	editResponse: function()
 	{
-		dog_admin.edited.push($(this).parent().attr('id'));
+		var id = $(this).parent().attr('id');
+		if ($.inArray(id, dog_admin.edited) == -1)
+			dog_admin.edited.push(id);
+
 		dog_admin.getResponseInputs(this).css('background-color', '#DBA2A2');
 	},
 	getResponseInputs: function(obj)
