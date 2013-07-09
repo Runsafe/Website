@@ -51,6 +51,7 @@
 		{
 			Session::Delete('LoggedInUser');
 			Session::Delete('LoggedInUsername');
+			Session::Delete('UserIsAdmin');
 		}
 	}
 ?>
