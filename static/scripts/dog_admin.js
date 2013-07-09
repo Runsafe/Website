@@ -56,11 +56,18 @@ $(function(){
 
 			}
 		},
+		deleteResponse: function()
+		{
+			var parent = $(this).parent();
+			PacketHandler.send(Packet.DeleteDogResponse, {id: parent.attr('ID')});
+			parent.remove();
+		},
 		load: function()
 		{
 			$(document).on('focus', '.dog-response input', dog_admin.focusResponse);
 			$(document).on('blur', '.dog-response input', dog_admin.blurResponse);
 			$(document).on('keydown', '.dog-response input', dog_admin.editResponse);
+			$(document).on('click', '.dog-response .delete', dog_admin.deleteResponse);
 
 			PacketHandler.hook(Packet.EditDogResponse, dog_admin.handleResponseSave);
 			dog_admin.container = $('#dog-responses');
