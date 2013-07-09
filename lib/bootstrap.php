@@ -5,6 +5,7 @@
 	session_start();
 
 	require_once('constants.php');
+	require_once('config.php');
 	require_once('class_loader.php');
 
 	//Core
