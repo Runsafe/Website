@@ -17,5 +17,21 @@
 			$query->bindValue(':id', $id);
 			$query->execute();
 		}
+
+		public static function AddNewResponse($pattern, $reply)
+		{
+			$query = DB::prepare('INSERT INTO ai_dog (pattern, reply) VALUES(:pattern, :reply)');
+			$query->bindValue(':pattern', $pattern);
+			$query->bindValue(':reply', $reply);
+			$query->execute();
+
+			$query = DB::prepare('SELECT LAST_INSERT_ID() AS ID FROM ai_dog');
+			$query->execute();
+
+			if ($result = $query->fetchObject())
+				return $result->ID;
+
+			return null;
+		}
 	}
 ?>
