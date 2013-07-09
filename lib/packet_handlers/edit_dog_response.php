@@ -7,7 +7,10 @@
 			$pattern = REST::Get('response_pattern');
 			$reply = REST::Get('response_reply');
 
-			// ToDo: Handle this.
+			if ($id != null && $pattern != null && $reply != null)
+			{
+				// ToDo: Handle this.
+			}
 		}
 	}
 ?>
