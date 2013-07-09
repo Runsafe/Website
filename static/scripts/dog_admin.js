@@ -50,6 +50,7 @@ $(function(){
 				{
 					var newField = $('#new');
 					newField.children('input').css('background-color', 'white');
+					newField.append('<input type="button" class="delete" value="X"/>');
 					newField.attr('id', data.success);
 					dog_admin.container.append(dog_admin.newField.clone());
 				}
