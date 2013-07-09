@@ -41,7 +41,7 @@ var dog_admin = {
 		{
 			var parent = $('#' + data.success);
 
-			if (parent.length > 1)
+			if (parent.length)
 			{
 				parent.children('input').css('background-color', 'white');
 			}
