@@ -5,6 +5,7 @@
 	{
 		if (count($this->responses))
 		{
+			?><div id="dog-responses"><?php
 			foreach ($this->responses as $response)
 			{
 				?>
@@ -18,7 +19,7 @@
 			<div class="dog-response" id="new">
 				<input type="text" class="pattern"/>
 				<input type="text" class="reply"/>
-			</div>
+			</div></div>
 			<?php
 		}
 		else
