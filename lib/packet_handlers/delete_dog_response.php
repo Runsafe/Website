@@ -3,7 +3,15 @@
 	{
 		public function Run()
 		{
-			// ToDo: Deletion handling code.
+			if (Authenticator::IsLoggedIn() && Authenticator::IsAdmin())
+			{
+				$id = REST::Get('id');
+
+				if ($id != null)
+				{
+					// ToDo: Delete response.
+				}
+			}
 		}
 	}
 ?>
