@@ -1,10 +1,11 @@
 <?php
 	class Template
 	{
-		public function __construct($file)
+		public function __construct($template)
 		{
 			$this->data = Array();
 
+			$file = sprintf('../templates/%s.php', $template);
 			if (file_exists($file))
 				$this->file = $file;
 		}

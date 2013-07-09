@@ -3,7 +3,7 @@
 	{
 		public function Build()
 		{
-			$this->content = new Template('../templates/pvp_leaderboard.php');
+			$this->content = new Template('pvp_leaderboard');
 			$this->title = 'PvP Rankings';
 
 			$this->content->scoreboard = PvPRankingsHandler::getTopRankings();
