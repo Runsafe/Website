@@ -3,7 +3,7 @@
 	{
 		public function Build()
 		{
-			$this->content = new Template('../templates/dog_admin.php');
+			$this->content = new Template('dog_admin');
 			$this->title = 'Dog Administration';
 		}
 	}

@@ -6,9 +6,9 @@
 			$this->title = 'PvP Shop';
 
 			if (AccountManager::GetLinkedCharacter() !== null)
-				$this->content = new Template('../templates/pvp_shop.php');
+				$this->content = new Template('pvp_shop');
 			else
-				$this->content = new Template('../templates/require_link.php');
+				$this->content = new Template('require_link');
 		}
 	}
 ?>
