@@ -296,9 +296,23 @@ p
 
 .dog-response .pattern, .dog-response .reply
 {
-	width: 49%;
+	width: 48%;
 	margin-bottom: 3px;
 	padding: 2px;
 	border: 1px solid #B8B8B8;
 	background: white;
+}
+
+.dog-response .delete
+{
+	border: 1px solid #B8B8B8;
+	background: white;
+	padding: 2px;
+	cursor: pointer;
+}
+
+.dog-response .delete:hover
+{
+	background-color: #E3B8B8;
+	border-color: #B85858;
 }
