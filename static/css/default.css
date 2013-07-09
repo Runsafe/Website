@@ -297,4 +297,7 @@ p
 .dog-response .pattern, .dog-response .reply
 {
 	width: 49%;
+	margin-bottom: 3px;
+	padding: 2px;
+	border: 1px solid #B8B8B8;
 }
