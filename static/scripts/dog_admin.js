@@ -24,10 +24,11 @@ var dog_admin = {
 	{
 		for (node_pointer in dog_admin.edited)
 		{
-			var node = $('#' + dog_admin.edited[node_pointer]);
+			var id = dog_admin.edited[node_pointer];
+			var node = $('#' + id);
 
 			PacketHandler.send(Packet.EditDogResponse, {
-				id: node.attr('id'),
+				id: id,
 				pattern: node.children('.pattern').val(),
 				reply: node.children('.reply').val()
 			});
