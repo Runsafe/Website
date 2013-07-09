@@ -13,13 +13,15 @@
 				Session::Set('LoggedInUser', $user->user_id);
 				Session::Set('LoggedInUsername', $username);
 
-				$admin_query = DB::prepare('SELECT parent FROM permissions_inheritance WHERE child = :user');
+				$admin_query = DB::prepare('SELECT LOWER(parent) FROM permissions_inheritance WHERE child = :user');
 				$admin_query->bindValue(':user', strtolower($username));
 				$admin_query->execute();
 
 				if ($admin_user = $admin_query->fetchObject())
-					if ($admin_user->parent == 'Admin' || $admin_user->parent == 'Manager')
+				{
+					if ($admin_user->parent == 'admin' || $admin_user->parent == 'manager')
 						Session::Set('UserIsAdmin', true);
+				}
 
 				return true;
 			}
