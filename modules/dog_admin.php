@@ -1,5 +1,5 @@
 <?php
-	class DogAdminPage extends MemberModule
+	class DogAdminPage extends AdminModule
 	{
 		public function Build()
 		{
