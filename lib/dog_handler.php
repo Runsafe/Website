@@ -8,5 +8,14 @@
 
 			return DB::prepareObjects($query);
 		}
+
+		public static function EditResponse($id, $pattern, $reply)
+		{
+			$query = DB::prepare('UPDATE ai_dog SET pattern = :pattern, reply = :reply WHERE ID = :id');
+			$query->bindValue(':pattern', $pattern);
+			$query->bindValue(':reply', $reply);
+			$query->bindValue(':id', $id);
+			$query->execute();
+		}
 	}
 ?>
