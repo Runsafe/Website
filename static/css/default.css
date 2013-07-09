@@ -288,3 +288,13 @@ p
 {
 	cursor: pointer;
 }
+
+.dog-response
+{
+	width: 100%;
+}
+
+.dog-response .pattern, .dog-response .reply
+{
+	width: 49%;
+}
