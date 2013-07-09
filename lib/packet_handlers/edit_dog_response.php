@@ -11,7 +11,8 @@
 
 				if ($id != null && $pattern != null && $reply != null)
 				{
-					// ToDo: Handle this.
+					DogHandler::EditResponse($id, $pattern, $reply);
+					$this->output['success'] = 1;
 				}
 			}
 		}
