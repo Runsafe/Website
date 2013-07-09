@@ -33,5 +33,12 @@
 
 			return null;
 		}
+
+		public static function DeleteResponse($id)
+		{
+			$query = DB::prepare('DELETE FROM ai_dog WHERE ID = :id');
+			$query->bindValue(':id', $id);
+			$query->execute();
+		}
 	}
 ?>
