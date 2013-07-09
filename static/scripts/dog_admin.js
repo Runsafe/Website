@@ -1,0 +1,1 @@
+var dog_admin = {};
