@@ -12,7 +12,7 @@
 				if ($id != null && $pattern != null && $reply != null)
 				{
 					DogHandler::EditResponse($id, $pattern, $reply);
-					$this->output['success'] = 1;
+					$this->output['success'] = $id;
 				}
 			}
 		}
