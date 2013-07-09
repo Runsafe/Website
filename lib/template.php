@@ -5,6 +5,7 @@
 		{
 			$this->data = Array();
 
+			$this->template = $template;
 			$file = sprintf('../templates/%s.php', $template);
 			if (file_exists($file))
 				$this->file = $file;
@@ -26,7 +27,7 @@
 		public function __toString()
 		{
 			if ($this->file == null)
-				return 'Error: template not found'; // TODO: Make this a friendly error.
+				return sprintf('Error: Could not find template <b>%s</b>', $this->template);
 
 			ob_start();
 			extract($this->data);
@@ -38,5 +39,6 @@
 		public $content;
 		protected $data;
 		protected $file;
+		protected $template;
 	}
 ?>
