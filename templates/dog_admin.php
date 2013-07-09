@@ -14,6 +14,12 @@
 					</div>
 				<?php
 			}
+			?>
+			<div class="dog-response" id="new">
+				<input type="text" class="pattern"/>
+				<input type="text" class="reply"/>
+			</div>
+			<?php
 		}
 		else
 		{
