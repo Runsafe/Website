@@ -11,8 +11,15 @@
 
 				if ($id != null && $pattern != null && $reply != null)
 				{
-					DogHandler::EditResponse($id, $pattern, $reply);
-					$this->output['success'] = $id;
+					if ($id == "new")
+					{
+						$this->output['success'] = DogHandler::AddNewResponse($pattern, $reply);
+					}
+					else
+					{
+						DogHandler::EditResponse($id, $pattern, $reply);
+						$this->output['success'] = $id;
+					}
 				}
 			}
 		}
