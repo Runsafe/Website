@@ -8,6 +8,7 @@
 				if (Authenticator::IsAdmin())
 				{
 					parent::__construct();
+					return;
 				}
 			}
 			$this->Deny();
