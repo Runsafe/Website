@@ -14,6 +14,7 @@
 	ClassLoader::registerClass('Transporter', 'transporter.php');
 	ClassLoader::registerClass('Module', 'module.php');
 	ClassLoader::registerClass('MemberModule', 'member_module.php');
+	ClassLoader::registerClass('AdminModule', 'admin_module.php');
 	ClassLoader::registerClass('Template', 'template.php');
 	ClassLoader::registerClass('PacketHandler', 'packet_handler.php');
 
