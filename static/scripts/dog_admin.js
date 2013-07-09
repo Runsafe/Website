@@ -51,7 +51,7 @@ $(function(){
 					var newField = $('#new');
 					newField.children('input').css('background-color', 'white');
 					newField.attr('id', data.success);
-					dog_admin.container.append(dog_admin.newField.clone()).trigger('create');
+					dog_admin.container.append(dog_admin.newField.clone());
 				}
 
 			}
