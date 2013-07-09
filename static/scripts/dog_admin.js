@@ -24,7 +24,7 @@ var dog_admin = {
 			var node = $(dog_admin.edited[node_pointer]);
 
 			PacketHandler.send(Packet.EditDogResponse, {
-				id: node.attr('ID'),
+				id: node.attr('id'),
 				pattern: node.children('.pattern').val(),
 				reply: node.children('.reply').val()
 			});
@@ -45,7 +45,7 @@ var dog_admin = {
 			{
 				var newField = $('#new');
 				newField.children('input').css('background-color', 'white');
-				newField.attr('ID', data.success);
+				newField.attr('id', data.success);
 				dog_admin.container.append('<div class="dog-response" id="new"><input type="text" class="pattern"/><input type="text" class="reply"/></div>');
 			}
 
