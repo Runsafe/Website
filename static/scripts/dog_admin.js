@@ -10,7 +10,7 @@ var dog_admin = {
 	},
 	editResponse: function()
 	{
-		dog_admin.edited.push(this);
+		dog_admin.edited.push($(this).parent());
 		dog_admin.getResponseInputs(this).css('background-color', '#DBA2A2');
 	},
 	getResponseInputs: function(obj)
@@ -21,17 +21,31 @@ var dog_admin = {
 	{
 		for (node_pointer in dog_admin.edited)
 		{
-			var node = dog_admin.edited[node_pointer];
-			var inputs = dog_admin.getResponseInputs(node);
-			inputs.css('background-color', 'white');
+			var node = $(dog_admin.edited[node_pointer]);
+
+			PacketHandler.send(Packet.EditDogResponse, {
+				id: node.attr('ID'),
+				pattern: node.children('.pattern').val(),
+				reply: node.children('.reply').val()
+			});
 		}
 		dog_admin.edited = [];
+	},
+	handleResponseSave: function(data)
+	{
+		if (data.success != undefined)
+		{
+			var parent = $('#' + data.success);
+			parent.children('input').css('background-color', 'white');
+		}
 	},
 	load: function()
 	{
 		$(document).on('focus', '.dog-response input', dog_admin.focusResponse);
 		$(document).on('blur', '.dog-response input', dog_admin.blurResponse);
 		$(document).on('keydown', '.dog-response input', dog_admin.editResponse);
+
+		PacketHandler.hook(Packet.EditDogResponse, dog_admin.handleResponseSave);
 	},
 	edited: []
 };
