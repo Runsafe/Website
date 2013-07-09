@@ -10,7 +10,7 @@
 				?>
 					<div class="dog-response">
 						<input type="text" class="pattern" value="<?php echo $response->pattern; ?>"/>
-						<input type="text" class="response" value="<?php echo $response->response; ?>"/>
+						<input type="text" class="response" value="<?php echo $response->reply; ?>"/>
 					</div>
 				<?php
 			}
