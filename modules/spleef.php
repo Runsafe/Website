@@ -3,7 +3,7 @@
 	{
 		public function Build()
 		{
-			$this->content = new Template('../templates/spleef.php');
+			$this->content = new Template('spleef');
 			$this->title = 'Spleef Leaderboard';
 
 			$this->content->scoreboard = SpleefHandler::getLatestSpleefWins();

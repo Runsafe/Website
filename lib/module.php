@@ -9,7 +9,7 @@
 
 		public function __toString()
 		{
-			$site = new Template('../templates/site.php');
+			$site = new Template('site');
 
 			if ($this->title !== null)
 				$site->title = $this->title;

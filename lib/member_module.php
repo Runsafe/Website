@@ -11,7 +11,7 @@
 
 		private function Deny()
 		{
-			$this->content = new Template('../templates/login.php');
+			$this->content = new Template('login');
 			$this->content->attempt = true;
 			$this->title = 'Log-in';
 		}

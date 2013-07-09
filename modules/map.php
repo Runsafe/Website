@@ -3,7 +3,7 @@
 	{
 		public function Build()
 		{
-			$this->content = new Template('../templates/map.php');
+			$this->content = new Template('map');
 			$this->title = 'Creative World Map';
 		}
 	}
