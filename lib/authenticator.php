@@ -18,10 +18,8 @@
 				$admin_query->execute();
 
 				if ($admin_user = $admin_query->fetchObject())
-				{
 					if ($admin_user->parent == 'admin' || $admin_user->parent == 'manager')
 						Session::Set('UserIsAdmin', true);
-				}
 
 				return true;
 			}
