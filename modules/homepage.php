@@ -3,7 +3,7 @@
 	{
 		public function Build()
 		{
-			$this->content = new Template('../templates/home.php');
+			$this->content = new Template('home');
 			$this->title = 'Home';
 
 			$this->content->staff = StaffListHandler::getStaffList();

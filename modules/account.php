@@ -3,7 +3,7 @@
 	{
 		public function Build()
 		{
-			$this->content = new Template('../templates/account.php');
+			$this->content = new Template('account');
 			$this->title = 'Account';
 
 			$this->content->linkedCharacter = AccountManager::GetLinkedCharacter();
