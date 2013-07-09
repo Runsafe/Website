@@ -24,7 +24,7 @@ $(function(){
 				else
 				{
 					LoginHandler.hideError();
-					window.location = 'index.php';
+					window.location = window.location.href;
 				}
 			}
 			else
