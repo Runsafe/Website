@@ -1,5 +1,16 @@
 $(function(){
 	var Spleef = {
+		load: function()
+		{
+			PacketHandler.hook(Packet.SpleefScore, Spleef.handlerScoreReturn);
+
+			Spleef.playerNameField.on('keypress', function(data)
+			{
+				if (data.keyCode == 13)
+					Spleef.checkScore();
+			});
+		},
+
 		checkScore: function()
 		{
 			var playerName = Spleef.playerNameField.val();
@@ -17,12 +28,5 @@ $(function(){
 		outputField: $('#spleef-lookup')
 	};
 
-
-	PacketHandler.hook(Packet.SpleefScore, Spleef.handlerScoreReturn);
-
-	Spleef.playerNameField.on('keypress', function(data)
-	{
-		if (data.keyCode == 13)
-			Spleef.checkScore();
-	});
+	Spleef.load();
 });
