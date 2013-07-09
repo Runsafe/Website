@@ -20,7 +20,6 @@
 			<div class="dog-response" id="new">
 				<input type="text" class="pattern"/>
 				<input type="text" class="reply"/>
-				<input type="button" class="delete" value="X"/>
 			</div></div>
 			<?php
 		}
