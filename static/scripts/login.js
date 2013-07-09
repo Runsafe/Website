@@ -41,7 +41,7 @@ $(function(){
 		{
 			LoginHandler.errorBox.slideUp();
 		},
-		onLoad: function()
+		load: function()
 		{
 			LoginHandler.usernameField = $('#username-field');
 			LoginHandler.passwordField = $('#password-field');
@@ -66,5 +66,5 @@ $(function(){
 		}
 	};
 
-	LoginHandler.onLoad();
+	LoginHandler.load();
 });
