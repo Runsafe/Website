@@ -27,6 +27,11 @@
 			return false;
 		}
 
+		public static function IsAdmin()
+		{
+			return Session::Get('UserIsAdmin') !== null;
+		}
+
 		public static function IsLoggedIn()
 		{
 			return Session::Get('LoggedInUser') !== null;
