@@ -6,9 +6,9 @@
 			$this->title = 'PvP Event';
 
 			if (AccountManager::GetLinkedCharacter() !== null)
-				$this->content = new Template('../templates/pvp.php');
+				$this->content = new Template('pvp');
 			else
-				$this->content = new Template('../templates/require_link.php');
+				$this->content = new Template('require_link');
 		}
 	}
 ?>

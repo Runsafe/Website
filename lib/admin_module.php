@@ -20,7 +20,7 @@
 
 		private function Deny()
 		{
-			$this->content = new Template('../templates/invalid_access.php');
+			$this->content = new Template('invalid_access');
 			$this->title = 'Invalid Access';
 		}
 	}

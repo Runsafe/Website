@@ -3,7 +3,7 @@
 	{
 		public function Build()
 		{
-			$this->content = new Template('../templates/login.php');
+			$this->content = new Template('login');
 			$this->title = 'Log-in';
 		}
 	}
