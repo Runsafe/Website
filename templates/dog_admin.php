@@ -12,6 +12,7 @@
 					<div class="dog-response" id="<?php echo $response->ID; ?>">
 						<input type="text" class="pattern" value="<?php echo $response->pattern; ?>"/>
 						<input type="text" class="reply" value="<?php echo $response->reply; ?>"/>
+						<input type="button" class="delete" value="X"/>
 					</div>
 				<?php
 			}
@@ -19,6 +20,7 @@
 			<div class="dog-response" id="new">
 				<input type="text" class="pattern"/>
 				<input type="text" class="reply"/>
+				<input type="button" class="delete" value="X"/>
 			</div></div>
 			<?php
 		}
