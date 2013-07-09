@@ -8,9 +8,7 @@
 				$id = REST::Get('id');
 
 				if ($id != null)
-				{
-					// ToDo: Delete response.
-				}
+					DogHandler::DeleteResponse($id);
 			}
 		}
 	}
