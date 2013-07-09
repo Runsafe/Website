@@ -5,9 +5,9 @@
 		{
 			if (Authenticator::IsLoggedIn() && Authenticator::IsAdmin())
 			{
-				$id = REST::Get('response_id');
-				$pattern = REST::Get('response_pattern');
-				$reply = REST::Get('response_reply');
+				$id = REST::Get('id');
+				$pattern = REST::Get('pattern');
+				$reply = REST::Get('reply');
 
 				if ($id != null && $pattern != null && $reply != null)
 				{
