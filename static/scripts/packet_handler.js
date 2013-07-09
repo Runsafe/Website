@@ -4,7 +4,8 @@ var Packet = {
 	LinkCharacter: 3,
 	PVPGetPoints: 4,
 	PVPBuyItem: 5,
-	PVPSignUp: 6
+	PVPSignUp: 6,
+	EditDogResponse: 7
 };
 
 var PacketHandler = {
