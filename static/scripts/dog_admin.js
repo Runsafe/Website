@@ -36,7 +36,19 @@ var dog_admin = {
 		if (data.success != undefined)
 		{
 			var parent = $('#' + data.success);
-			parent.children('input').css('background-color', 'white');
+
+			if (parent.length > 1)
+			{
+				parent.children('input').css('background-color', 'white');
+			}
+			else
+			{
+				var newField = $('#new');
+				newField.children('input').css('background-color', 'white');
+				newField.attr('ID', data.success);
+				dog_admin.container.append('<div class="dog-response" id="new"><input type="text" class="pattern"/><input type="text" class="reply"/></div>');
+			}
+
 		}
 	},
 	load: function()
@@ -46,6 +58,7 @@ var dog_admin = {
 		$(document).on('keydown', '.dog-response input', dog_admin.editResponse);
 
 		PacketHandler.hook(Packet.EditDogResponse, dog_admin.handleResponseSave);
+		dog_admin.container = $('#dog-responses');
 	},
 	edited: []
 };
