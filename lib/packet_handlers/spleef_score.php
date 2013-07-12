@@ -4,8 +4,12 @@
 		public function Run()
 		{
 			$player = REST::Get('playerName');
-			$this->output['score'] = $this->getPlayerScore($player);
-			$this->output['playerName'] = $player;
+
+			if ($player != null)
+			{
+				$this->output['score'] = $this->getPlayerScore($player);
+				$this->output['playerName'] = $player;
+			}
 		}
 
 		private function getPlayerScore($playerName)
