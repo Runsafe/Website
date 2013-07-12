@@ -1,5 +1,7 @@
+var Spleef = {};
+
 $(function(){
-	var Spleef = {
+	Spleef = {
 		load: function()
 		{
 			PacketHandler.hook(Packet.SpleefScore, Spleef.handlerScoreReturn);

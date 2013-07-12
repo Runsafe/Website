@@ -1,5 +1,7 @@
+var Rating = {};
+
 $(function(){
-	var Rating = {
+	Rating = {
 		load: function()
 		{
 			PacketHandler.hook(Packet.PvPRating, PvPRating.handlerScoreReturn);
