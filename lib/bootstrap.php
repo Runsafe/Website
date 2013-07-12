@@ -24,7 +24,7 @@
 	ClassLoader::registerClass('MemberModule', 'member_module.php');
 	ClassLoader::registerClass('AdminModule', 'admin_module.php');
 
-	// Specific page handlers
+	// Specific handlers
 	ClassLoader::registerClass('StaffListHandler', 'staff_list_handler.php');
 	ClassLoader::registerClass('SpleefHandler', 'spleef_handler.php');
 	ClassLoader::registerClass('PvPRankingsHandler', 'pvp_rankings_handler.php');
