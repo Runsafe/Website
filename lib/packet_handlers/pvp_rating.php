@@ -7,6 +7,7 @@
 
 			if ($player != null)
 			{
+				$player = CharacterHandler::getCorrectCharacterName($player);
 				$this->output['rating'] = PvPRankingsHandler::getPlayerRating($player);
 				$this->output['playerName'] = $player;
 			}

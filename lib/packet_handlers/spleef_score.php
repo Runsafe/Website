@@ -7,6 +7,7 @@
 
 			if ($player != null)
 			{
+				$player = CharacterHandler::getCorrectCharacterName($player);
 				$this->output['score'] = $this->getPlayerScore($player);
 				$this->output['playerName'] = $player;
 			}
