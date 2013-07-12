@@ -1,3 +1,14 @@
+<script type="text/javascript" src="http://static.minecraft.runsafe.no/scripts/pvp_rating.js"></script>
+<?php
+	if ($this->character !== null)
+	{
+		?>
+	<script>
+		PacketHandler.send(Packet.PvPRating, { playerName: '<?php echo $this->character; ?>' });
+	</script>
+	<?php
+	}
+?>
 <h1>PvP Rankings (Ordered by rating)</h1>
 <?php
 	if ($this->scoreboard !== null)
@@ -49,3 +60,8 @@
 	}
 ?>
 <div id="spleef-leaderboard-padder"></div>
+<p>
+	<label for="player">Lookup a player's rating using their name: </label>
+	<input type="text" id="player" class="input-text"/><input onclick="Rating.checkScore();" type="button" id="lookup" value="Lookup" class="input-button"/>
+</p>
+<p id="pvprating-lookup"></p>

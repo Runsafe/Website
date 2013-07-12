@@ -173,7 +173,7 @@ p
 	width: 500px;
 }
 
-#spleef-leaderboard-small p img, #spleef-lookup img
+#spleef-leaderboard-small p img, #spleef-lookup img, #pvprating-lookup img
 {
 	margin-right: 5px;
 }
@@ -195,7 +195,7 @@ p
 	margin-bottom: 25px;
 }
 
-#spleef-lookup img
+#spleef-lookup img, #pvprating-lookup img
 {
 	height: 16px;
 	width: 16px;

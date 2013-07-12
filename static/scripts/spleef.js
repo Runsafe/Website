@@ -9,6 +9,7 @@ $(function(){
 				if (data.keyCode == 13)
 					Spleef.checkScore();
 			});
+			alert("Test");
 		},
 
 		checkScore: function()

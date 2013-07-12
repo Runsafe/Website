@@ -7,6 +7,7 @@
 			$this->title = 'PvP Rankings';
 
 			$this->content->scoreboard = PvPRankingsHandler::getTopRankings();
+			$this->content->character = AccountManager::GetLinkedCharacter();
 		}
 	}
 ?>

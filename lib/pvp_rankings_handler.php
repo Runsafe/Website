@@ -12,5 +12,17 @@
 
 			return $scoreboard;
 		}
+
+		public static function getPlayerRating($playerName)
+		{
+			$query = DB::prepare('SELECT rating FROM peeveepee_scores WHERE playerName = :player');
+			$query->bindValue(':player', $playerName);
+			$query->execute();
+
+			if ($player = $query->fetchObject())
+				return $player->rating;
+
+			return 1200; // Default rating
+		}
 	}
 ?>
