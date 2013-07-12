@@ -15,8 +15,8 @@
 
 		public static function getPlayerScore($playerName)
 		{
-			$query = DB::prepare('SELECT Wins FROM spleefScore WHERE ID = :player');
-			$query->bindValue(':player', $playerName);
+			$query = DB::prepare('SELECT Wins FROM spleefScore WHERE LOWER(ID) = :player');
+			$query->bindValue(':player', strtolower($playerName));
 			$query->execute();
 
 			if ($player = $query->fetchObject())

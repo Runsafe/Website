@@ -15,8 +15,8 @@
 
 		public static function getPlayerRating($playerName)
 		{
-			$query = DB::prepare('SELECT rating FROM peeveepee_scores WHERE playerName = :player');
-			$query->bindValue(':player', $playerName);
+			$query = DB::prepare('SELECT rating FROM peeveepee_scores WHERE LOWER(playerName) = :player');
+			$query->bindValue(':player', strtolower($playerName));
 			$query->execute();
 
 			if ($player = $query->fetchObject())
