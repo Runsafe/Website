@@ -23,7 +23,7 @@ $(function(){
 			},
 			10: {
 				name: 'Hunting Bow',
-				description: 'A well crafting hunting bow, perfect for shooting players!',
+				description: 'A well crafted hunting bow, perfect for shooting players!',
 				cost: 200,
 				icon: 'tile_bow.png'
 			},
