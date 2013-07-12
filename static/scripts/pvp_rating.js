@@ -4,7 +4,7 @@ $(function(){
 	Rating = {
 		load: function()
 		{
-			PacketHandler.hook(Packet.PvPRating, PvPRating.handlerScoreReturn);
+			PacketHandler.hook(Packet.PvPRating, Rating.handlerScoreReturn);
 
 			Rating.playerNameField.on('keypress', function(data)
 			{
