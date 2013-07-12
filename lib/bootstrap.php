@@ -32,6 +32,7 @@
 	ClassLoader::registerClass('PVPShopHandler', 'pvp_shop_handler.php');
 	ClassLoader::registerClass('PVPEvent', 'pvp_event.php');
 	ClassLoader::registerClass('DogHandler', 'dog_handler.php');
+	ClassLoader::registerClass('CharacterHandler', 'character_handler.php');
 
 	spl_autoload_register('ClassLoader::loadClass');
 ?>
