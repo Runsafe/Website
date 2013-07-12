@@ -9,7 +9,7 @@
 		<?php
 	}
 ?>
-<h1>Spleef Leader Board</h1>
+<h1>Spleef Leaderboard</h1>
 <?php
 	if ($this->scoreboard !== null)
 	{

@@ -14,9 +14,9 @@
 				<div id="login-corner">
 					<?php
 						if (Authenticator::IsLoggedIn())
-							echo sprintf('You are logged in as %s. <a href="logout.php">[Logout]</a>', Authenticator::GetLoggedInUsername());
+							echo sprintf('You are logged in as %s. <a href="logout.php">[Log Out]</a>', Authenticator::GetLoggedInUsername());
 						else
-							echo 'You are not logged in. <a href="login.php">[Login]</a>';
+							echo 'You are not logged in. <a href="login.php">[Log In]</a>';
 					?>
 				</div>
 			</div>
