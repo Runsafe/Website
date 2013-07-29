@@ -2,7 +2,8 @@
 	error_reporting(E_ALL);
 	ini_set('display_errors', 1);
 
-	session_start();
+	if (php_sapi_name() !== 'cli')
+		session_start();
 
 	require_once('constants.php');
 	require_once('config.php');
