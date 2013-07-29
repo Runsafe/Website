@@ -11,6 +11,7 @@
 	//Core
 	ClassLoader::registerClass('DB', 'database.php');
 	ClassLoader::registerClass('PhorumDB', 'phorum_database.php');
+	ClassLoader::registerClass('WikiDB', 'wiki_database.php');
 	ClassLoader::registerClass('REST', 'rest_handler.php');
 	ClassLoader::registerClass('Session', 'session_handler.php');
 	ClassLoader::registerClass('Transporter', 'transporter.php');
