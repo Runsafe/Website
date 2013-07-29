@@ -20,6 +20,7 @@
 	ClassLoader::registerClass('PacketHandler', 'packet_handler.php');
 	ClassLoader::registerClass('Authenticator', 'authenticator.php');
 	ClassLoader::registerClass('Transporter', 'transporter.php');
+	ClassLoader::registerClass('WikiPageBuilder', 'wiki_page_builder.php');
 
 	// Module types
 	ClassLoader::registerClass('Module', 'module.php');
