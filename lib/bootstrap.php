@@ -21,6 +21,7 @@
 	ClassLoader::registerClass('Authenticator', 'authenticator.php');
 	ClassLoader::registerClass('Transporter', 'transporter.php');
 	ClassLoader::registerClass('WikiPageBuilder', 'wiki_page_builder.php');
+	ClassLoader::registerClass('GithubRepoSearcher', 'github_repo_searcher.php');
 
 	// Module types
 	ClassLoader::registerClass('Module', 'module.php');
