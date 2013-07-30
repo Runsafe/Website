@@ -16,8 +16,8 @@
 			{
 				if ($node->type == 'file')
 				{
-					$parts = explode('.', $node->name, 1);
-					$extension = (count($parts) ? $parts[0] : '');
+					$parts = explode('.', $node->name, 2);
+					$extension = (count($parts) ? $parts[1] : '');
 
 					if (in_array($extension, $this->extensions))
 						$this->searchFile($this->extendPath($path, $node->name));
@@ -31,16 +31,18 @@
 
 		private function searchFile($file_path)
 		{
-			$data = $this->getJSON($file_path);
+			$data = $this->getJSON($this->url . $file_path);
 			if ($data->encoding == 'base64')
 			{
-				echo $data->content . PHP_EOL . PHP_EOL;
+				$decoded = base64_decode($data->content);
+				if (strstr($decoded, $this->search) !== false)
+					$this->matches[$file_path] = $decoded;
 			}
 		}
 
 		private function getJSON($path)
 		{
-			return json_decode(file_get_contents($path));
+			return json_decode(file_get_contents($path . '?access_token=291c4fdddaf0caa45111242bbcfff7aba5eacd94'));
 		}
 
 		private function extendPath($path, $attach)
