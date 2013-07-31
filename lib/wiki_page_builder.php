@@ -19,6 +19,13 @@
 			return $this;
 		}
 
+		public function insertLine($text)
+		{
+			$this->insertText($text);
+			$this->insertNewLine();
+			return $this;
+		}
+
 		public function insertList($array)
 		{
 			foreach ($array as $node)
