@@ -25,10 +25,10 @@
 					<a href="index.php"><li>About Our Server</li></a>
 					<a href="spleef.php"><li>Spleef Leaderboard</li></a>
 					<a href="pvp_leaderboard.php"><li>PvP Rankings</li></a>
+					<a href="pvp_shop.php"><li>PvP Shop</li></a>
 					<a href="http://shadowphoenixguild.co.uk/forum/"><li>Forum</li></a>
 					<a href="map.php"><li>Creative Map</li></a>
 					<a href="http://wiki.runsafe.no/index.php/Main_Page"><li>Wiki</li></a>
-					<a href="pvp_shop.php"><li>PvP Shop</li></a>
 					<a href="account.php"><li>Account</li></a>
 				</ul>
 			</div>
