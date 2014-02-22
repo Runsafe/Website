@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title><?php echo $title; ?></title>
+		<title><?php echo $title; ?> | Runsafe - An Entire Internets</title>
 		<link rel="stylesheet" type="text/css" href="https://static.runsafe.no/css/global.css"/>
 		<link href='https://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>
 		<?php
