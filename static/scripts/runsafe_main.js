@@ -20,7 +20,11 @@ $(function()
 	}).on('mouseout', '#main-logos img', function()
 	{
 		text.html('');
+	});
+
+	$(document).on('mouseleave', '#main-logos', function()
+	{
 		images.stop(true);
 		images.fadeTo('fast', 1);
-	});
+	})
 });
