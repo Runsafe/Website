@@ -4,8 +4,9 @@
 		/**
 		 * @param string $title The title of the page
 		 * @param string $content Page content
+		 * @param string $navigation Navigation module
 		 */
-		public function __construct($title, $content)
+		public function __construct($title, $content, $navigation)
 		{
 			$this->styles = Array();
 			$this->scripts = Array();
@@ -13,6 +14,7 @@
 			$this->template = new KW_Template('../templates/site_template.php');
 			$this->template->title = $title;
 			$this->template->content = $content;
+			$this->template->navigation = new KW_Template('../templates/' . $navigation);
 		}
 
 		protected function addStylesheet($file)
