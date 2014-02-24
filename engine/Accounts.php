@@ -70,6 +70,8 @@
 					$query = DB::Web()->prepare('INSERT INTO accounts (email, password) VALUES(:email, :password)');
 					$query->setValue(':email', $email)->setValue(':password', crypt($password))->execute();
 
+					DB::Web()->prepare('DELETE FROM legacy_accounts WHERE email = :email')->setValue(':email', $email)->execute();
+
 					return DB::Web()->getLastInsertID('accounts');
 				}
 			}
