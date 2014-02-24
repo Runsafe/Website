@@ -62,7 +62,7 @@
 			else
 			{
 				$query = DB::Web()->prepare('SELECT password FROM legacy_accounts WHERE email = :email AND password = :pass');
-				$query->setValue(':email', $email)->$query->setValue(':pass', md5($password))->execute();
+				$query->setValue(':email', $email)->setValue(':pass', md5($password))->execute();
 				$result = $query->getFirstRow();
 
 				if ($result != null)
@@ -70,9 +70,11 @@
 					$query = DB::Web()->prepare('INSERT INTO accounts (email, password) VALUES(:email, :password)');
 					$query->setValue(':email', $email)->setValue(':password', crypt($password))->execute();
 
+					$lid = DB::Web()->getLastInsertID('accounts');
+
 					DB::Web()->prepare('DELETE FROM legacy_accounts WHERE email = :email')->setValue(':email', $email)->execute();
 
-					return DB::Web()->getLastInsertID('accounts');
+					return $lid;
 				}
 			}
 			return null;
