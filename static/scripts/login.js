@@ -43,9 +43,17 @@ $(function()
 			if (data.success != undefined)
 			{
 				if (data.success == 1)
+				{
 					this.status.setSuccess('Successfully logged in! Redirecting..');
+					if (history.length > 0)
+						history.go(-1);
+					else
+						window.location =  'https://runsafe.no/';
+				}
 				else
+				{
 					this.status.setError('Invalid e-mail/password.');
+				}
 			}
 			else
 			{
