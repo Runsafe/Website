@@ -30,9 +30,9 @@ $.fn.setStatus = function(msg, styleClass)
 
 $(function()
 {
-	$(document).on('keypress', '.form-table input', function(data)
+	$(document).on('keypress', '.form-table-submittable input', function(data)
 	{
 		if (data.keyCode == 13)
-			$(this).parents().find('.form-table').find('#submit').click();
+			$(this).parents().find('.form-table-submittable').find('#submit').click();
 	});
 });
