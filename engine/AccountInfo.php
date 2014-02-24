@@ -1,6 +1,5 @@
 <?php
-	class AccountInfo
+	class AccountInfo extends DataObject
 	{
-
 	}
 ?>
