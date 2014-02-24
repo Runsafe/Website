@@ -1,5 +1,6 @@
 <?php
 	require_once('../engine/bootstrap.php'); // Include bootstrap.
+	require_once('../engine/packet_mapping_bootstrap.php');
 	$system->addAutoLoadPath('../engine/packet_handlers');
 
 	$packet = null;
