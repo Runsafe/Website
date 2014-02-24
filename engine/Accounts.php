@@ -35,6 +35,32 @@
 		}
 
 		/**
+		 * Set the logged in account for this session
+		 * @param int $account_id ID of the account to log-in
+		 */
+		public static function setLoggedInAccount($account_id)
+		{
+			$query = DB::Web()->prepare('SELECT email FROM accounts WHERE ID = :id');
+			$query->setValue(':id', $account_id)->execute();
+
+			$result = $query->getFirstRow();
+			if ($result != null)
+			{
+				$account = new AccountInfo($account_id);
+				$account->email = $result->email;
+				Session::Set('account_info', $account);
+			}
+		}
+
+		/**
+		 * Log out the currently logged in account
+		 */
+		public static function logout()
+		{
+			Session::Delete('account_info');
+		}
+
+		/**
 		 * Get the account info object for the currently logged in user
 		 * @return AccountInfo|null Account info object or NULL if not logged in
 		 */

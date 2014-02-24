@@ -36,3 +36,25 @@
 {
 	border: 1px solid #262626;
 }
+
+.form-status
+{
+	font-weight: bold;
+	margin-top: 20px;
+	display: none;
+}
+
+.form-error
+{
+	color: #C40000;
+}
+
+.form-success
+{
+	color: #17C400;
+}
+
+.form-pending
+{
+	color: #C48600;
+}

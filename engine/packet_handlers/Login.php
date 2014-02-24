@@ -10,9 +10,13 @@
 			{
 				$verify = Accounts::verifyAccount($email, $pass);
 				if ($verify == null)
+				{
 					$this->output('success', 0);
-				else
-					$this->output('success', 1);
+					return;
+				}
+
+				Accounts::setLoggedInAccount($verify);
+				$this->output('success', 1);
 			}
 		}
 	}

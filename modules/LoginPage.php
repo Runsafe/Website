@@ -6,7 +6,14 @@
 			$template = new KW_Template('../templates/login.php');
 			parent::__construct('Log-in', $template);
 			$this->addStylesheet('form.css');
+			$this->addScript('forms.js');
 			$this->addScript('login.js');
+
+			if (Accounts::isLoggedIn())
+			{
+				Accounts::logout();
+				$template->logout = true;
+			}
 		}
 	}
 ?>
