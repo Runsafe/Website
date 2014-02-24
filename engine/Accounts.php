@@ -22,7 +22,7 @@
 		 */
 		public static function emailIsValid($email)
 		{
-			return filter_Var($email, FILTER_VALIDATE_EMAIL) !== FALSE;
+			return filter_var($email, FILTER_VALIDATE_EMAIL) !== FALSE;
 		}
 
 		/**
@@ -41,6 +41,39 @@
 		public static function getAccountData()
 		{
 			return Session::Get('account_info');
+		}
+
+		/**
+		 * Try to verify an account in the account database or as a legacy account
+		 * @param string $email The e-mail address of the account
+		 * @param string $password The password for the account
+		 * @return int|null The ID of the account or NULL if not valid
+		 */
+		public static function verifyAccount($email, $password)
+		{
+			$query = DB::Web()->prepare('SELECT ID, password FROM accounts WHERE email = :email');
+			$query->setValue(':email', $email)->execute();
+			$result = $query->getFirstRow();
+
+			if ($result !== null)
+			{
+				return (crypt($password, $result->password) == $result->password) ? $result->ID : false;
+			}
+			else
+			{
+				$query = DB::Web()->prepare('SELECT password FROM legacy_accounts WHERE email = :email AND password = :pass');
+				$query->setValue(':email', $email)->$query->setValue(':pass', md5($password))->execute();
+				$result = $query->getFirstRow();
+
+				if ($result != null)
+				{
+					$query = DB::Web()->prepare('INSERT INTO accounts (email, password) VALUES(:email, :password)');
+					$query->setValue(':email', $email)->setValue(':password', crypt($password))->execute();
+
+					return DB::Web()->getLastInsertID('accounts');
+				}
+			}
+			return null;
 		}
 	}
 ?>

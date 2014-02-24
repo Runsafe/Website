@@ -8,6 +8,8 @@
 				echo '<link rel="stylesheet" type="text/css" href="https://static.runsafe.no/css/' . $style . '"/>';
 		?>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="https://static.runsafe.no/scripts/global.js"></script>
+		<script src="https://static.runsafe.no/scripts/packet_handler.js"></script>
 		<?php
 			foreach ($scripts as $script)
 				echo '<script src="https://static.runsafe.no/scripts/' . $script . '"></script>';
@@ -19,13 +21,16 @@
 				<div id="header-content">
 					<img src="https://static.runsafe.no/images/runsafe_logo.png" id="logo" alt="Runsafe - An Entire Internets"/>
 					<ul id="navigation">
-						<li>Minecraft</li>
-						<li>GitHub</li>
-						<li>Jenkins</li>
-						<li>VPN</li>
-						<li>Webmail</li>
-						<li>Mail Admin</li>
+						<li><a href="https://minecraft.runsafe.no/">Minecraft</a></li>
+						<li><a href="https://github.com/Runsafe/">GitHub</a></li>
+						<li><a href="https://jenkins.runsafe.no/">Jenkins</a></li>
+						<li><a href="https://vpn.runsafe.no:943/">VPN</a></li>
+						<li><a href="https://mail.skviril.net/">Webmail</a></li>
+						<li><a href="https://admin.skviril.net/">Mail Admin</a></li>
 					</ul>
+					<div id="nav-account">
+						<a href="https://runsafe.no/login.php"><?php echo Accounts::isLoggedIn() ? 'Logout' : 'Log-in'; ?></a>
+					</div>
 				</div>
 				<div class="divider"></div>
 			</div>

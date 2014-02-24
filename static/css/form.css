@@ -1,0 +1,38 @@
+.form-table
+{
+	border-spacing: 0;
+	margin: 20px;
+}
+
+.form-table td, .form-table th
+{
+	padding: 5px;
+}
+
+.form-table th
+{
+	text-align: right;
+}
+
+.input-text, .input-button
+{
+	padding: 5px;
+	border: 1px solid #bfbfbf;
+}
+
+.input-text
+{
+	width: 200px;
+}
+
+.input-button
+{
+	cursor: pointer;
+	background: white;
+	padding: 5px 10px;
+}
+
+.input-text:focus, .input-button:hover
+{
+	border: 1px solid #262626;
+}

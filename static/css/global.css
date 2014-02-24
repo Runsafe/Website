@@ -25,10 +25,20 @@ a img
 	border: 0;
 }
 
+a
+{
+	text-decoration: none;
+}
+
 h1
 {
 	font-size: 2em;
 	font-weight: normal;
+}
+
+p
+{
+	margin-top: 5px;
 }
 
 #header
@@ -48,6 +58,11 @@ h1
 	height: 69px;
 	margin: 0 auto;
 	text-align: left;
+}
+
+#header-content a
+{
+	color: white;
 }
 
 .divider
@@ -101,7 +116,7 @@ h1
 	list-style: none;
 }
 
-#navigation li
+#navigation li, #nav-account
 {
 	float: left;
 	padding: 1.6em;
@@ -109,7 +124,12 @@ h1
 	cursor: pointer;
 }
 
-#navigation li.selected, #navigation li:hover
+#nav-account
+{
+	float: right;
+}
+
+#navigation li.selected, #navigation li:hover, #nav-account:hover
 {
 	background-color: #80a5b3;
 }

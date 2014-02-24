@@ -89,6 +89,15 @@
 		}
 
 		/**
+		 * Returns the first row of the data retrieved. Will by NULL if no results were returned.
+		 * @return KW_DatabaseRow|null
+		 */
+		public function getFirstRow()
+		{
+			return isset($this->rows[0]) ? $this->rows[0] : null;
+		}
+
+		/**
 		 * Returns the amount of rows in this statement.
 		 *
 		 * @return int Amount of rows in this statement. Always zero until executed.
