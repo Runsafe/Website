@@ -1,5 +1,5 @@
 var Packet = {
-	PlaceholderPacket: 1
+	Login: 1
 };
 
 var PacketHandler = {

@@ -6,4 +6,5 @@
 	$system->getErrorHandler()->addEmailOutputRecipient('kruithne@runsafe.no');
 	$system->addAutoLoadPath('../modules');
 	$system->addAutoLoadPath('../engine');
+	$system->addAutoLoadPath('../engine/interfaces');
 ?>

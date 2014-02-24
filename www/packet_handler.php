@@ -1,5 +1,6 @@
 <?php
 	require_once('../engine/bootstrap.php'); // Include bootstrap.
+	$system->addAutoLoadPath('../engine/packet_handlers');
 
 	$packet = null;
 	$uid = null;
@@ -17,6 +18,13 @@
 
 	if ($packet !== null)
 	{
+		$handler = PacketSystem::getHandler($packet);
+		if ($handler instanceof IPacketHandler)
+		{
+			if ($uid !== null)
+				$handler->output('uid', $uid);
 
+			echo $handler;
+		}
 	}
 ?>
