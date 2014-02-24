@@ -3,7 +3,17 @@
 	{
 		public function Run()
 		{
-			$this->output('Test', 42);
+			$email = REST::Get('email');
+			$pass = REST::Get('pass');
+
+			if ($email != null && $pass != null)
+			{
+				$verify = Accounts::verifyAccount($email, $pass);
+				if ($verify == null)
+					$this->output('success', 0);
+				else
+					$this->output('success', 1);
+			}
 		}
 	}
 ?>
