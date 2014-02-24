@@ -27,3 +27,12 @@ $.fn.setStatus = function(msg, styleClass)
 	}
 	return t;
 };
+
+$(function()
+{
+	$(document).on('keypress', '.form-table input', function(data)
+	{
+		if (data.keyCode == 13)
+			$(this).parents().find('.form-table').find('#submit').click();
+	});
+});
