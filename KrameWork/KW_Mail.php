@@ -14,6 +14,15 @@
 		}
 
 		/**
+		 * Load the text from a file.
+		 * @param string $file File to load.
+		 */
+		public function loadFromFile($file)
+		{
+			$this->append($file);
+		}
+
+		/**
 		 * Get the amount of recipients this mail will be sent to.
 		 *
 		 * @return int Amount of recipients.
