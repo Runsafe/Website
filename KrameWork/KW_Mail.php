@@ -4,12 +4,16 @@
 		/**
 		 * Add a recipient who will receive this mail.
 		 *
-		 * @param string $recipient The address of the recipient.
+		 * @param string|array $recipients The address of the recipient.
 		 * @return KW_Mail $this Instance of the object mail.
 		 */
-		public function addRecipient($recipient)
+		public function addRecipients($recipients)
 		{
-			$this->recipients[] = $recipient;
+			if (is_array($recipients))
+				$this->recipients = array_merge($this->recipients, $recipients);
+			else
+				$this->recipients[] = $recipients;
+
 			return $this;
 		}
 
