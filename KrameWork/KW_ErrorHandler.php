@@ -22,7 +22,7 @@
 		 */
 		public function addEmailOutputRecipient($recipient)
 		{
-			$this->getMailObject()->addRecipient($recipient);
+			$this->getMailObject()->addRecipients($recipient);
 		}
 
 		/**
