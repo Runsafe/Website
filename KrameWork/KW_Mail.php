@@ -19,7 +19,7 @@
 		 */
 		public function loadFromFile($file)
 		{
-			$this->append($file);
+			$this->append(file_get_contents($file));
 		}
 
 		/**
