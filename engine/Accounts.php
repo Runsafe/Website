@@ -4,11 +4,12 @@
 		/**
 		 * Check if an e-mail address is already in use.
 		 * @param string $email The e-mail address to check
+		 * @param bool $legacy Check the legacy DB or not.
 		 * @return bool True if the e-mail address is already in use
 		 */
-		public static function emailInUse($email)
+		public static function emailInUse($email, $legacy = false)
 		{
-			$query = DB::Web()->prepare('SELECT COUNT(*) AS cnt FROM accounts WHERE email = :email');
+			$query = DB::Web()->prepare('SELECT COUNT(*) AS cnt FROM ' . ($legacy ? 'legacy_' : '') . 'accounts WHERE email = :email');
 			$query->setValue(':email', $email)->execute();
 
 			$result = $query->getRows();

@@ -14,7 +14,7 @@
 	text-align: right;
 }
 
-.input-text, .input-button
+.input-text, .input-button, .input-select
 {
 	padding: 5px;
 	border: 1px solid #bfbfbf;

@@ -17,3 +17,4 @@
 		</td>
 	</tr>
 </table>
+<p><a href="recovery.php">Forgot your password? Click here to recover account access!</a></p>

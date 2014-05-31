@@ -1,3 +1,38 @@
+<h1>3rd May 2014</h1><br/>
+<b>General Changes:</b><br/>
+- You are now unable to put levels into a bottle without an empty space in your inventory to prevent loosing the enchantment bottle.<br/>
+- The Bank has been redesigned slightly to try and prevent clumbsy oafs from dropping items behind the bars.<br/>
+- When sending a book using the "/mail sendbook" command, a success message is displayed to confirm it sent.<br/>
+- Dergons no longer lay on the ground having seizures and should be fully functional.<br/>
+- Dergons now spawn more often.<br/>
+<br/>
+<b>Clan Changes:</b><br/>
+- You can now decline pending clan invitations using "/clan decline <clan>".<br/>
+- Pending clan invites to invalid clans are now correctly removed automatically.<br/>
+- Fixed a bug that would cause the "pending invites" message to show up when you have no clan invites pending.<br/>
+<br/>
+<b>Commands:</b><br/>
+- The "/npc" command and it's functionality has been removed.<br/>
+- The "/sit" command has been removed.<br/>
+- The "/boundaryimmune" command has been removed and is now permission-based.<br/>
+<br/>
+<b>Companion Pets:</b><br/>
+- The Bart (Sheep) companion pet now randomly changes colour every <s>ten</s> five minutes.<br/>
+- New companion pet Flappy (Bat) is now available to buy from our website.<br/>
+- New companion pet Mittens (Cat) is now available to buy from our website.<br/>
+- New companion pet Murps (Cat) is now available to buy from our website.<br/>
+- New companion pet Fluffers (Cat) is now available to buy from our website.<br/>
+<br/>
+<b>Technical/Framework Changes:</b><br/>
+- Some debugging has been removed from when players enter portals which should reduce server lag during heavy-traffic time periods.<br/>
+<br/>
+<h1>16th April 2014</h1><br/>
+<b>General Changes</b><br/>
+- Wolf Tracking has been removed, another similar feature may be added in the future but for now it will remain a removed feature.<br/>
+- Orb of Molten Soaking now correctly removes itself from a players inventory when used if the stack is at 1.<br/>
+- Scaffolding no longer turns into pistons when placed against a block with redstone current in it.<br/>
+- Market trades should no longer randomly give out lower amounts than specified.<br/>
+<br/>
 <h1>14th March 2014</h1><br/>
 <b>General Changes</b><br/>
 - A new world has been added: Azuren! Azuren is Runsafe's version of The End, containing new mobs, dungeons and a custom generation design!<br/>

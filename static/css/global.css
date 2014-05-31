@@ -41,9 +41,20 @@ p
 	margin-top: 5px;
 }
 
+a
+{
+	color: #6c8e9c;
+}
+
+a:hover
+{
+	color: #073b56;
+}
+
 #header
 {
 	position: fixed;
+	z-index: 500;
 	left: 0;
 	right: 0;
 	top: 0;

@@ -1,0 +1,32 @@
+#pet-frame li
+{
+	border: 1px solid black;
+	width: 200px;
+	height: 200px;
+	display: inline-block;
+	position: relative;
+}
+
+#pet-frame li div
+{
+	color: white;
+	text-shadow:
+		-2px -2px 0 #000,
+		2px -2px 0 #000,
+		-2px 2px 0 #000,
+		2px 2px 0 #000;
+	position: absolute;
+	bottom: 10px;
+	left: 0;
+	color: white;
+	text-align: center;
+	width: 200px;
+	font-size: 2em;
+}
+
+#pet-frame
+{
+	margin: 20px auto;
+	list-style: none;
+	width: 1030px;
+}
