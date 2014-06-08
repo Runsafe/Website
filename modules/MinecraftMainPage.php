@@ -5,6 +5,9 @@
 		{
 			$template = new KW_Template('../templates/minecraft_main.php');
 			parent::__construct('Minecraft', $template, 'minecraft_navigation.php');
+			$this->addStylesheet('minecraft_news.css');
+
+			$template->news = NewsFeedHandler::getNewsFeed();
 		}
 	}
 ?>
