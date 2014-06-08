@@ -41,7 +41,7 @@
 		 */
 		public static function setLoggedInAccount($account_id)
 		{
-			$query = DB::Web()->prepare('SELECT email FROM accounts WHERE ID = :id');
+			$query = DB::Web()->prepare('SELECT email, flags FROM accounts WHERE ID = :id');
 			$query->setValue(':id', $account_id)->execute();
 
 			$result = $query->getFirstRow();
@@ -49,6 +49,7 @@
 			{
 				$account = new AccountInfo($account_id);
 				$account->email = $result->email;
+				$account->flags = $result->flags;
 				Session::Set('account_info', $account);
 			}
 		}
