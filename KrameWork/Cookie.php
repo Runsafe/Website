@@ -6,11 +6,14 @@
 		 *
 		 * @param string $name The name to identify the cookie.
 		 * @param mixed $value The value of the cookie.
-		 * @param int $expires How many seconds until the cookie expires.
+		 * @param int|DateTime $expires The timestamp at which the cookie should expire.
 		 */
 		public static function Set($name, $value, $expires)
 		{
-			setcookie($name, $value, time() - $expires);
+			if ($expires instanceof DateTime)
+				$expires = $expires->getTimestamp();
+
+			setcookie($name, $value, $expires);
 		}
 
 		/**

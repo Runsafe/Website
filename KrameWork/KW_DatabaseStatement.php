@@ -11,6 +11,7 @@
 		{
 			$this->sql = $sql;
 			$this->connection = $connection;
+			$this->statement = $this->connection->prepare($this->sql);
 		}
 
 		/**
@@ -34,6 +35,11 @@
 		{
 			$this->values[$key] = $value;
 			return $this;
+		}
+
+		public function __set($key, $value)
+		{
+			$this->setValue(':'.$key, $value);
 		}
 
 		/**
@@ -60,21 +66,12 @@
 		 */
 		public function execute()
 		{
-			$pdo_statement = $this->connection->prepare($this->sql);
 			foreach ($this->values as $key => $value)
-				$pdo_statement->bindValue($key, $value);
+				$this->statement->bindValue($key, $value);
 
-			$pdo_statement->execute();
-
-			while ($raw_row = $pdo_statement->fetch(PDO::FETCH_ASSOC))
-			{
-				$row = new KW_DatabaseRow();
-				foreach ($raw_row as $column => $field)
-					$row->__set($column, $field);
-
-				$this->rows[] = $row;
-			}
-
+			$this->statement->execute();
+			$this->executed = true;
+			$this->rows = null;
 			return $this;
 		}
 
@@ -85,6 +82,22 @@
 		 */
 		public function getRows()
 		{
+			if (!$this->executed)
+				$this->execute();
+
+			if ($this->rows == null)
+			{
+				$this->rows = array();
+				while ($raw_row = $this->statement->fetch(PDO::FETCH_ASSOC))
+				{
+					$row = new KW_DatabaseRow();
+					foreach ($raw_row as $column => $field)
+						$row->__set($column, $field);
+
+					$this->rows[] = $row;
+				}
+			}
+
 			return $this->rows;
 		}
 
@@ -94,7 +107,8 @@
 		 */
 		public function getFirstRow()
 		{
-			return isset($this->rows[0]) ? $this->rows[0] : null;
+			$rows = $this->getRows();
+			return isset($rows[0]) ? $rows[0] : null;
 		}
 
 		/**
@@ -126,5 +140,12 @@
 		 * @var PDO
 		 */
 		private $connection;
+
+		/**
+		 * @var PDOStatement
+		 */
+		private $statement;
+
+		private $executed;
 	}
 ?>

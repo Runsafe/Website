@@ -5,9 +5,11 @@
 		 * Construct an error handler for the KrameWork system.
 		 *
 		 * @param bool $alterLevel Can we alter the runtime error level?
+		 * @param integer $maxErrors How many errors do we abort after, per execution?
 		 */
-		public function __construct($alterLevel = true)
+		public function __construct($alterLevel = true, $maxErrors = 10)
 		{
+			$this->maxErrors = $maxErrors;
 			if ($alterLevel)
 				error_reporting(E_ALL);
 
@@ -59,6 +61,8 @@
 		 */
 		public function handleError($type, $string, $file, $line)
 		{
+			if($this->errorCount++ > $this->maxErrors)
+				die('Excessive errors, aborting');
 			if (!error_reporting() & $type)
 				return true;
 
@@ -72,7 +76,7 @@
 				default: $type = 'UNKNOWN'; break;
 			}
 
-			$this->sendErrorReport($this->generateErrorReport($type, $line, $file, $string));
+			$this->sendErrorReport($this->generateErrorReport($type, $line, $file, $string, debug_backtrace()));
 			return true;
 		}
 
@@ -83,8 +87,10 @@
 		 */
 		public function handleException($exception)
 		{
+			if($this->errorCount++ > $this->maxErrors)
+				die('Excessive errors, aborting');
 			$this->sendErrorReport($this->generateErrorReport(
-				'EXCEPTION', $exception->getLine(), $exception->getFile(), $exception->getMessage())
+				'EXCEPTION', $exception->getLine(), $exception->getFile(), $exception->getMessage(), $exception->getTrace())
 			);
 		}
 
@@ -97,7 +103,7 @@
 		 * @param string $error A description of the error.
 		 * @return KW_ErrorReport An error report object ready for use.
 		 */
-		private function generateErrorReport($type, $line, $file, $error)
+		private function generateErrorReport($type, $line, $file, $error, $trace = null)
 		{
 			$report = new KW_ErrorReport();
 			$report->setSubject('Error (' . $type . ') - ' . date("Y-m-d H:i:s"));
@@ -105,6 +111,7 @@
 			$report->Line = $line;
 			$report->File = $file;
 			$report->Error = $error;
+			$report->trace = $trace;
 
 			return $report;
 		}
@@ -169,5 +176,15 @@
 		 * @var string|null Will be NULL if not yet set.
 		 */
 		private $log;
+
+		/**
+		 * @var maxErrors Number of errors to process before aborting exection.
+		 */
+		private $maxErrors = 10;
+
+		/**
+		 * @var integer Number of errors this execution.
+		 */
+		private $errorCount = 0;
 	}
 ?>

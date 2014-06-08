@@ -10,10 +10,18 @@
 		{
 			$data = new StringBuilder();
 
-			foreach ($this->sub_modules as $sub_module)
-				$data->append($sub_module->renderModule());
+			try
+			{
+				foreach ($this->sub_modules as $sub_module)
+					$data->append($sub_module->renderModule());
 
-			$data->append($this->renderModule());
+				$data->append($this->renderModule());
+			}
+			catch(Exception $e)
+			{
+				error_log($e->getMessage());
+				return '';
+			}
 
 			return $data->__toString();
 		}

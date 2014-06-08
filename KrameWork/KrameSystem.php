@@ -13,10 +13,12 @@
 		public function __construct($flags = KW_DEFAULT_FLAGS)
 		{
 			// Set-up auto loading.
-			$this->classLoader = new KW_ClassLoader();
-			$this->classLoader->setAllowedExtensions('.php');
-			$this->classLoader->addClassPath(dirname(__FILE__));
-			spl_autoload_register(array($this->classLoader, 'loadClass'));
+			KW_ClassLoader::setAllowedExtensions('.php');
+			KW_ClassLoader::addClassPath(dirname(__FILE__));
+
+			$loadClassFunction = 'KW_ClassLoader::loadClass';
+			spl_autoload_register($loadClassFunction);
+			ini_set('unserialize_callback_func', $loadClassFunction);
 
 			if (($flags & KW_ENABLE_SESSIONS) && !self::sessionIsStarted())
 				session_start();
@@ -32,7 +34,7 @@
 		 */
 		public function addAutoLoadPath($classPath)
 		{
-			$this->classLoader->addClassPath($classPath);
+			KW_ClassLoader::addClassPath($classPath);
 		}
 
 		/**
@@ -42,7 +44,7 @@
 		 */
 		public function setAutoLoadExtensions($extensionString)
 		{
-			$this->classLoader->setAllowedExtensions($extensionString);
+			KW_ClassLoader::setAllowedExtensions($extensionString);
 		}
 
 		/**
@@ -65,11 +67,6 @@
 			else
 				return session_id() === '' ? false : true;
 		}
-
-		/**
-		 * @var KW_ClassLoader
-		 */
-		private $classLoader;
 
 		/**
 		 * @var KW_ErrorHandler

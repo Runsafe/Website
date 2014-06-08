@@ -6,17 +6,17 @@
 		 *
 		 * @param string $className The name of the class.
 		 */
-		public function loadClass($className)
+		public static function loadClass($className)
 		{
 			// ToDo: Allow recursive searching for auto-loading.
-			foreach ($this->classPaths as $classPath)
+			foreach (self::$classPaths as $classPath)
 			{
 				foreach (scandir($classPath) as $node)
 				{
 					if ($node === '.' || $node === '..')
 						continue;
 
-					foreach ($this->allowedExtensions as $extension)
+					foreach (self::$allowedExtensions as $extension)
 					{
 						$path = $classPath . DIRECTORY_SEPARATOR . $className . $extension;
 						if (file_exists($path))
@@ -34,9 +34,9 @@
 		 *
 		 * @param String $extensionString A comma-separated list of extensions with period included.
 		 */
-		public function setAllowedExtensions($extensionString)
+		public static function setAllowedExtensions($extensionString)
 		{
-			$this->allowedExtensions = explode(',', $extensionString);
+			self::$allowedExtensions = explode(',', $extensionString);
 		}
 
 		/**
@@ -44,12 +44,12 @@
 		 *
 		 * @param String $classPath The directory to add to the loader.
 		 */
-		public function addClassPath($classPath)
+		public static function addClassPath($classPath)
 		{
-			$this->classPaths[] = rtrim($classPath, "\x2F\x5C");
+			self::$classPaths[] = rtrim($classPath, "\x2F\x5C");
 		}
 
-		private $allowedExtensions = Array();
-		private $classPaths = Array();
+		private static $allowedExtensions = Array();
+		private static $classPaths = Array();
 	}
 ?>
