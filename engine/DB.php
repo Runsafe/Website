@@ -19,7 +19,16 @@
 			return self::$server_connection;
 		}
 
+		public static function Auth()
+		{
+			if (self::$auth_connection == null)
+				self::$auth_connection = new KW_DatabaseConnection(AUTH_DB_DSN, DB_USER, DB_PASSWORD);
+
+			return self::$auth_connection;
+		}
+
 		private static $web_connection;
 		private static $server_connection;
+		private static $auth_connection;
 	}
 ?>
