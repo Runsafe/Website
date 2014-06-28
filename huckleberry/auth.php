@@ -6,8 +6,19 @@
 	$return = 'invalid';
 
 	if ($username !== NULL && $password !== NULL)
-		if (Accounts::verifyAccount($username, $password))
-			$return = 'success';
+	{
+		$account = Accounts::verifyAccount($username, $password);
+		if (is_int($account))
+		{
+			$return = 'noinvite';
+			$query = DB::Web()->prepare('SELECT hb_user FROM accounts WHERE ID = :id');
+			$query->setValue(':id', $account);
+
+			$user = $query->getFirstRow();
+			if ($user !== null && $user->hb_user !== null)
+				$return = 'success';
+		}
+	}
 
 	echo $return;
 ?>
