@@ -17,4 +17,22 @@
 		</td>
 	</tr>
 </table>
+<h1>Register New Account</h1>
+<p id="register-status" class="form-status form-success"></p>
+<table class="form-table form-table-submittable">
+	<tr>
+		<th>E-mail:</th>
+		<td><input type="text" class="input-text" id="reg-email"/></td>
+	</tr>
+	<tr>
+		<th>Password:</th>
+		<td><input type="password" class="input-text" id="reg-pass"></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>
+			<input type="button" class="input-button" id="reg-submit" value="Register"/>
+		</td>
+	</tr>
+</table>
 <p><a href="recovery.php">Forgot your password? Click here to recover account access!</a></p>

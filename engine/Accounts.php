@@ -71,6 +71,14 @@
 			return Session::Get('account_info');
 		}
 
+		public static function registerAccount($email, $password)
+		{
+			$query = DB::Web()->prepare('INSERT INTO accounts (email, password) VALUES(:email, :pass');
+			$query->setValue(':email', $email);
+			$query->setValue(':pass', $password);
+			$query->execute();
+		}
+
 		/**
 		 * Try to verify an account in the account database or as a legacy account
 		 * @param string $email The e-mail address of the account

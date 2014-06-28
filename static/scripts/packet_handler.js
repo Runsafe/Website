@@ -1,6 +1,7 @@
 var Packet = {
 	Login: 1,
-	RecoverAccount: 2
+	RecoverAccount: 2,
+	RegisterAccount: 3
 };
 
 var PacketHandler = {
