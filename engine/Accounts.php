@@ -75,7 +75,7 @@
 		{
 			$query = DB::Web()->prepare('INSERT INTO accounts (email, password) VALUES(:email, :pass)');
 			$query->setValue(':email', $email);
-			$query->setValue(':pass', $password);
+			$query->setValue(':pass', crypt($password));
 			$query->execute();
 		}
 

@@ -6,7 +6,7 @@
 	$return = 'invalid';
 
 	if ($username !== NULL && $password !== NULL)
-		if (AuthHandler::verifyCredentials($username, $password))
+		if (Accounts::verifyAccount($username, $password))
 			$return = 'success';
 
 	echo $return;
