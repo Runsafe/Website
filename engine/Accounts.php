@@ -73,7 +73,7 @@
 
 		public static function registerAccount($email, $password)
 		{
-			$query = DB::Web()->prepare('INSERT INTO accounts (email, password) VALUES(:email, :pass');
+			$query = DB::Web()->prepare('INSERT INTO accounts (email, password) VALUES(:email, :pass)');
 			$query->setValue(':email', $email);
 			$query->setValue(':pass', $password);
 			$query->execute();

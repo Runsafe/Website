@@ -36,7 +36,7 @@ $(function()
 				return;
 			}
 
-			this.registerStatus.setPending('Logging in, please wait...');
+			this.registerStatus.setPending('Registering, please wait...');
 			PacketHandler.send(Packet.RegisterAccount, {
 				email: email,
 				pass: pass
