@@ -8,7 +8,7 @@
 	if ($username !== NULL && $password !== NULL)
 	{
 		$account = Accounts::verifyAccount($username, $password);
-		if (is_int($account))
+		if ($account != false)
 		{
 			$return = 'noinvite';
 			$query = DB::Web()->prepare('SELECT hb_user FROM accounts WHERE ID = :id');
@@ -16,7 +16,11 @@
 
 			$user = $query->getFirstRow();
 			if ($user !== null && $user->hb_user !== null)
-				$return = 'success';
+			{
+				$auth_key = md5($user->hb_user . time());
+				DB::Web()->prepare('UPDATE accounts SET hb_key = :key WHERE ID = :id')->setValue(':key', $auth_key)->setValue(':id', $account)->execute();
+				$return = 'USER' . $user->hb_user . ',' . $auth_key;
+			}
 		}
 	}
 
