@@ -8,12 +8,15 @@
 	$dirs = Array();
 	$data = Array();
 
-	function explore($dir)
+	function explore($dir, $log = true)
 	{
 		global $data;
-		global $dirs;
 
-		$dirs[] = $dir;
+		if ($log)
+		{
+			global $dirs;
+			$dirs[] = substr($dir, 14);
+		}
 		foreach (scandir($dir) as $file)
 		{
 			if ($file == '.' || $file == '..')
@@ -23,10 +26,10 @@
 			if (is_dir($path))
 				explore($path . '/');
 			else
-				$data[] = $path . ':' . md5_file($path);
+				$data[] = substr($path, 14) . ':' . md5_file($path);
 		}
 	}
 
-	explore($dir);
+	explore($dir, false);
 	file_put_contents('assets.dat', implode(chr(30), $dirs) . chr(31) . implode(chr(30), $data));
 ?>
