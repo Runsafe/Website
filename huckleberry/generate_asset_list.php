@@ -5,10 +5,15 @@
 
 	$dir = 'client/assets/';
 
+	$dirs = Array();
 	$data = Array();
+
 	function explore($dir)
 	{
 		global $data;
+		global $dirs;
+
+		$dirs[] = $dir;
 		foreach (scandir($dir) as $file)
 		{
 			if ($file == '.' || $file == '..')
@@ -23,5 +28,5 @@
 	}
 
 	explore($dir);
-	file_put_contents('assets.dat', implode(chr(30), $data));
+	file_put_contents('assets.dat', implode(chr(30), $dirs) . chr(31) . implode(chr(30), $data));
 ?>
