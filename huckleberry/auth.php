@@ -18,7 +18,7 @@
 			if ($user !== null && $user->hb_user !== null)
 			{
 				$auth_key = md5($user->hb_user . time());
-				DB::Web()->prepare('UPDATE accounts SET hb_key = :key WHERE ID = :id')->setValue(':key', $auth_key)->setValue(':id', $account)->execute();
+				file_put_contents('../hb_sess/' . $username, $auth_key);
 				$return = 'USER' . $user->hb_user . ',' . $auth_key;
 			}
 		}
