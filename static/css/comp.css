@@ -1,0 +1,17 @@
+#comp-logo
+{
+	margin: 20px;
+}
+
+#comp-list
+{
+	list-style: none;
+	margin: 20px;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+#comp-list li
+{
+	margin: 5px 0;
+}
