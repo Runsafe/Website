@@ -1,0 +1,10 @@
+*4th July
+
+New item: Ogre Club.
+Ogres now spawn holding ogre clubs.
+Ogres now scratch their heads less often.
+Non-generic capes can no longer be dyed.
+
+*28th June
+
+Huckleberry has been created!

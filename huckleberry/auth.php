@@ -18,7 +18,7 @@
 			if ($user !== null && $user->hb_user !== null)
 			{
 				$auth_key = md5($user->hb_user . time());
-				file_put_contents('../hb_sess/' . $username, $auth_key);
+				file_put_contents('../hb_sess/' . $user->hb_user, $auth_key);
 				$return = 'USER' . $user->hb_user . ',' . $auth_key;
 			}
 		}

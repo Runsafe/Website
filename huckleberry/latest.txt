@@ -1,1 +1,1 @@
-{\rtf1\ansi{\b 28th June \b0}\page\page{- Huckleberry has been created!}}
+{\rtf1\ansi{\b 4th July \b0}\page\page{- New item: Ogre Club.}\page{- Ogres now spawn holding ogre clubs.}\page{- Ogres now scratch their heads less often.}\page{- Non-generic capes can no longer be dyed.}\page\page{\b 28th June \b0}\page\page{- Huckleberry has been created!}\page}
