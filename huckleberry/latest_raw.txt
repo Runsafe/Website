@@ -1,3 +1,11 @@
+*5th July
+
+Ogres now spawn naturally in spawn biomes.
+There are three new types of ogre weapons!
+Wolves now drop wolf fur when killed.
+Capes can now be crafted using wolf fur.
+Ogre huts now spawn in swamps.
+
 *4th July
 
 New item: Ogre Club.
