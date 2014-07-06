@@ -22,5 +22,5 @@
 	}
 
 	$output .= "}";
-	echo $output;
+	file_put_contents("latest.txt", $output);
 ?>
