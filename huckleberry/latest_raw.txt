@@ -1,5 +1,7 @@
 *6th July
 
+Chat has been reformatted to match Runsafe.
+Players in the tab list are now coloured.
 Sound settings in Options has been revamped dramatically.
 
 *5th July
