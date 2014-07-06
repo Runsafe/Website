@@ -1,3 +1,7 @@
+*6th July
+
+Sound settings in Options has been revamped dramatically.
+
 *5th July
 
 Ogres now spawn naturally in spawn biomes.
