@@ -40,7 +40,7 @@
 		}
 
 		protected $template;
-		private $styles;
-		private $scripts;
+		protected $styles;
+		protected $scripts;
 	}
 ?>
