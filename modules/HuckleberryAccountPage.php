@@ -36,7 +36,7 @@
 		private function handleRedeem($template)
 		{
 			$user = REST::Post('redeem-user');
-			$code = REST::Post('redeem-code');
+			$code = strtoupper(REST::Post('redeem-code'));
 
 			$template->redeem_fail = true;
 			if ($user != null && $code != null)
