@@ -41,7 +41,7 @@
 			$template->redeem_fail = true;
 			if ($user != null && $code != null)
 			{
-				if (strlen($user) < 17 && Huckleberry::redeemCodeIsValid($code))
+				if (strlen($user) < 17 && !Huckleberry::usernameInUse($user) && Huckleberry::redeemCodeIsValid($code))
 				{
 					Huckleberry::redeemCode($code, $user);
 					$template->redeem_fail = null;

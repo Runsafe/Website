@@ -14,6 +14,15 @@
 			return null;
 		}
 
+		public static function usernameInUse($username)
+		{
+			$query = DB::Web()->prepare('SELECT ID FROM accounts WHERE hb_user = :user');
+			$query->setValue(':user', $username);
+
+			$result = $query->getFirstRow();
+			return $result != null;
+		}
+
 		public static function redeemCodeIsValid($code)
 		{
 			$query = DB::Web()->prepare('SELECT COUNT(*) AS row_count FROM hb_codes WHERE code = :code');
