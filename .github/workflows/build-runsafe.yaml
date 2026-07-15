@@ -55,4 +55,5 @@ jobs:
 
           git add charts/runsafe/values.yaml
           git commit -m "Update runsafe image to ${{ github.sha }}"
+          git pull --rebase origin main
           git push
