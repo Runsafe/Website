@@ -3,7 +3,7 @@ name: Build runsafe.no
 on:
   push:
     branches:
-      - main
+      - master
     paths:
       - "email-templates/**"
       - "engine/**"

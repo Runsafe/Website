@@ -3,7 +3,7 @@ name: Build minecraft.runsafe.no
 on:
   push:
     branches:
-      - main
+      - master
     paths:
       - "email-templates/**"
       - "engine/**"
