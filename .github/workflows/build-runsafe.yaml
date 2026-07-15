@@ -1,5 +1,9 @@
 name: Build runsafe.no
 
+concurrency:
+  group: helm-values-update
+  cancel-in-progress: false
+
 on:
   push:
     branches:
