@@ -10,5 +10,5 @@
 
 	$system = new KrameSystem();
 
-	$system->getErrorHandler()->addEmailOutputRecipient('kruithne@runsafe.no');
+	$system->getErrorHandler()->setOutputLog('/dev/stderr');
 ?>
