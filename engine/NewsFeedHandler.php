@@ -3,14 +3,14 @@
 	{
 		public static function getNewsFeed()
 		{
-			$cached = Cache::get('news_feed');
-			if ($cached != null)
-				return $cached;
+			// $cached = Cache::get('news_feed');
+			// if ($cached != null)
+			// 	return $cached;
 
 			$xml = simplexml_load_file('https://wiki.runsafe.no/api.php?action=query&format=xml&titles=Runsafe_News&prop=revisions&rvprop=content');
 			$process = self::processFeed($xml->query->pages->page->revisions->rev);
 
-			Cache::set('news_feed', $process, time() + 1800);
+			// Cache::set('news_feed', $process, time() + 1800);
 			return $process;
 		}
 
