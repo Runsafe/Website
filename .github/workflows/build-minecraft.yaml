@@ -42,3 +42,17 @@ jobs:
           tags: |
             ${{ env.IMAGE_NAME }}:latest
             ${{ env.IMAGE_NAME }}:${{ github.sha }}
+
+      - name: Install yq
+        uses: mikefarah/yq@v4
+
+      - name: Update Helm values
+        run: |
+          yq -i '.images.minecraft.tag = "${{ github.sha }}"' charts/runsafe/values.yaml
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add charts/runsafe/values.yaml
+          git commit -m "Update minecraft image to ${{ github.sha }}"
+          git push
