@@ -6,11 +6,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: runsafe
+      app.kubernetes.io/name: runsafe
   template:
     metadata:
       labels:
-        app: runsafe
+        app.kubernetes.io/name: runsafe
     spec:
       volumes:
         - name: webroot

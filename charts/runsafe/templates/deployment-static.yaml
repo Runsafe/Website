@@ -6,11 +6,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: static
+      app.kubernetes.io/name: static
   template:
     metadata:
       labels:
-        app: static
+        app.kubernetes.io/name: static
     spec:
       volumes:
         - name: webroot

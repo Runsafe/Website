@@ -6,11 +6,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: minecraft
+      app.kubernetes.io/name: minecraft
   template:
     metadata:
       labels:
-        app: minecraft
+        app.kubernetes.io/name: minecraft
     spec:
       volumes:
         - name: webroot
