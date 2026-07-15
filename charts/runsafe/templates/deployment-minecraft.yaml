@@ -36,7 +36,9 @@ spec:
           image: "{{ .Values.images.nginx.repository }}:{{ .Values.images.nginx.tag }}"
           imagePullPolicy: {{ .Values.images.nginx.pullPolicy }}
           ports:
-            - containerPort: 80
+            - name: http
+              containerPort: 80
+              protocol: TCP
           volumeMounts:
             - name: webroot
               mountPath: /usr/share/nginx
@@ -50,8 +52,3 @@ spec:
           volumeMounts:
             - name: webroot
               mountPath: /var/www
-
-      ports:
-        - name: http
-          containerPort: 80
-          protocol: TCP
