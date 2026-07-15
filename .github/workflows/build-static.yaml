@@ -7,7 +7,7 @@ on:
     paths:
       - "static/**"
       - "Dockerfile.static"
-      - ".github/workflows/build-static.yml"
+      - ".github/workflows/build-static.yaml"
 
 permissions:
   contents: read

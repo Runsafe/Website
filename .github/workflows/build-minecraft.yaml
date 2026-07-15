@@ -12,7 +12,7 @@ on:
       - "templates/**"
       - "minecraft/**"
       - "Dockerfile.minecraft"
-      - ".github/workflows/build-minecraft.yml"
+      - ".github/workflows/build-minecraft.yaml"
 
 permissions:
   contents: read

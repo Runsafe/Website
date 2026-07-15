@@ -12,7 +12,7 @@ on:
       - "templates/**"
       - "www/**"
       - "Dockerfile.runsafe"
-      - ".github/workflows/build-runsafe.yml"
+      - ".github/workflows/build-runsafe.yaml"
 
 permissions:
   contents: read
