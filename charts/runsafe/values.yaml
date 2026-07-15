@@ -17,7 +17,7 @@ images:
   static:
     repository: ghcr.io/runsafe/web-static
     pullPolicy: Always
-    tag: b0dc2bb41f52b2f677a6fbc8279585bf1f3a9c33
+    tag: 7a3355138c548c019fa0e6fc4eadd58e911e04e8
   nginx:
     repository: nginx
     pullPolicy: Always
