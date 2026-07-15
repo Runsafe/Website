@@ -13,7 +13,7 @@ images:
   minecraft:
     repository: ghcr.io/runsafe/web-minecraft
     pullPolicy: Always
-    tag: 7a3355138c548c019fa0e6fc4eadd58e911e04e8
+    tag: ae508cfd59e8f9211241431433ce217fc36af44f
   static:
     repository: ghcr.io/runsafe/web-static
     pullPolicy: Always
