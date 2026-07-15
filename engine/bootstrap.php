@@ -10,5 +10,5 @@
 
 	$system = new KrameSystem();
 
-	$system->getErrorHandler()->setOutputLog('/dev/stderr');
+	$system->getErrorHandler()->setOutputLog('stderr');
 ?>

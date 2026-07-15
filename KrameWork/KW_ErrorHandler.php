@@ -137,6 +137,10 @@
 
 			if ($this->log !== NULL)
 			{
+				if ($this->log === 'stderr')
+				{
+					file_put_contents('php://stderr', (string) $report);
+				}
 				if (@is_file($this->log))
 				{
 					file_put_contents($this->log, (string) $report, FILE_APPEND);
