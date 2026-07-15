@@ -9,22 +9,22 @@ replicaCount: 1
 images:
   runsafe:
     repository: ghcr.io/runsafe/web-apex
-    pullPolicy: always
+    pullPolicy: Always
     tag: latest
 
   minecraft:
     repository: ghcr.io/runsafe/web-minecraft
-    pullPolicy: always
+    pullPolicy: Always
     tag: latest
 
   static:
     repository: ghcr.io/runsafe/web-static
-    pullPolicy: always
+    pullPolicy: Always
     tag: latest
 
   nginx:
     repository: nginx
-    pullPolicy: always
+    pullPolicy: Always
     tag: latest
 
   php:
