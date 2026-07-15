@@ -9,7 +9,7 @@ images:
   runsafe:
     repository: ghcr.io/runsafe/web-apex
     pullPolicy: Always
-    tag: latest
+    tag: 7a3355138c548c019fa0e6fc4eadd58e911e04e8
   minecraft:
     repository: ghcr.io/runsafe/web-minecraft
     pullPolicy: Always
