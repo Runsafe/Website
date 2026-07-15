@@ -10,7 +10,7 @@ on:
       - ".github/workflows/build-static.yaml"
 
 permissions:
-  contents: read
+  contents: write
   packages: write
 
 env:

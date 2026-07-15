@@ -15,7 +15,7 @@ on:
       - ".github/workflows/build-runsafe.yaml"
 
 permissions:
-  contents: read
+  contents: write
   packages: write
 
 env:
