@@ -50,3 +50,8 @@ spec:
           volumeMounts:
             - name: webroot
               mountPath: /var/www
+
+      ports:
+        - name: http
+          containerPort: 80
+          protocol: TCP
