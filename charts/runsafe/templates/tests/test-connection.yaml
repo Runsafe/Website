@@ -1,15 +1,22 @@
+{{- range $name, $service := .Values.services }}
+{{- if $service.enabled }}
+---
 apiVersion: v1
 kind: Pod
 metadata:
-  name: "{{ include "runsafe.fullname" . }}-test-connection"
+  name: "{{ include "runsafe.fullname" $ }}-{{ $name }}-test-connection"
   labels:
-    {{- include "runsafe.labels" . | nindent 4 }}
+    {{- include "runsafe.labels" $ | nindent 4 }}
   annotations:
     "helm.sh/hook": test
+    "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
 spec:
   containers:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ include "runsafe.fullname" . }}:{{ .Values.service.port }}']
+      args:
+        - "{{ include "runsafe.fullname" $ }}-{{ $name }}:{{ $service.port }}"
   restartPolicy: Never
+{{- end }}
+{{- end }}
