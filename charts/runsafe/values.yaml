@@ -67,12 +67,21 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-# This is for setting up a service more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/
-service:
-  # This sets the service type more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
-  type: ClusterIP
-  # This sets the ports more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#field-spec-ports
-  port: 80
+services:
+  runsafe:
+    enabled: true
+    port: 80
+    targetPort: http
+
+  minecraft:
+    enabled: true
+    port: 80
+    targetPort: http
+
+  static:
+    enabled: true
+    port: 80
+    targetPort: http
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
