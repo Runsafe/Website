@@ -14,7 +14,7 @@ permissions:
   packages: write
 
 env:
-  IMAGE_NAME: ghcr.io/${{ github.repository_owner }}/web-static
+  IMAGE_NAME: ghcr.io/runsafe/web-static
 
 jobs:
   build:
