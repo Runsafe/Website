@@ -1,0 +1,8 @@
+FROM busybox:latest
+
+COPY email_templates /assets/email_templates
+COPY engine /assets/engine
+COPY KrameWork /assets/KrameWork
+COPY modules /assets/modules
+COPY templates /assets/templates
+COPY minecraft /assets/html

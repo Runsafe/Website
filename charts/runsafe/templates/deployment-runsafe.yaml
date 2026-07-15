@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: runsafe
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: runsafe
+  template:
+    metadata:
+      labels:
+        app: runsafe
+    spec:
+      volumes:
+        - name: webroot
+          emptyDir: {}
+        - name: nginx-config
+          configMap:
+            name: runsafe-nginx
+
+      initContainers:
+        - name: assets
+          image: "{{ .Values.images.runsafe.repository }}:{{ .Values.images.runsafe.tag }}"
+          imagePullPolicy: {{ .Values.images.runsafe.pullPolicy }}
+          command:
+            - sh
+            - -c
+            - cp -a /assets/. /webroot/
+          volumeMounts:
+            - name: webroot
+              mountPath: /webroot
+
+      containers:
+        - name: nginx
+          image: "{{ .Values.images.nginx.repository }}:{{ .Values.images.nginx.tag }}"
+          imagePullPolicy: {{ .Values.images.nginx.pullPolicy }}
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: webroot
+              mountPath: /usr/share/nginx
+            - name: nginx-config
+              mountPath: /etc/nginx/conf.d/default.conf
+              subPath: default.conf
+
+        - name: php-fpm
+          image: "{{ .Values.images.php-fpm.repository }}:{{ .Values.images.php-fpm.tag }}"
+          imagePullPolicy: {{ .Values.images.php-fpm.pullPolicy }}
+          volumeMounts:
+            - name: webroot
+              mountPath: /var/www

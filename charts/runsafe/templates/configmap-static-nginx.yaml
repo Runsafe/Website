@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: static-nginx
+data:
+  default.conf: |
+    server {
+        listen 80;
+        server_name _;
+
+        root /usr/share/nginx/html;
+        index index.html;
+
+        charset utf-8;
+
+        location / {
+            try_files $uri $uri/ =404;
+        }
+
+        location ~ /\. {
+            deny all;
+        }
+    }

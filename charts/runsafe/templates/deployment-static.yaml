@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: static
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: static
+  template:
+    metadata:
+      labels:
+        app: static
+    spec:
+      volumes:
+        - name: webroot
+          emptyDir: {}
+        - name: nginx-config
+          configMap:
+            name: static-nginx
+
+      initContainers:
+        - name: assets
+          image: "{{ .Values.images.static.repository }}:{{ .Values.images.static.tag }}"
+          imagePullPolicy: {{ .Values.images.static.pullPolicy }}
+          command:
+            - sh
+            - -c
+            - cp -a /assets/. /webroot/
+          volumeMounts:
+            - name: webroot
+              mountPath: /webroot
+
+      containers:
+        - name: nginx
+          image: "{{ .Values.images.nginx.repository }}:{{ .Values.images.nginx.tag }}"
+          imagePullPolicy: {{ .Values.images.nginx.pullPolicy }}
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: webroot
+              mountPath: /usr/share/nginx/html

@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: minecraft-nginx
+data:
+  default.conf: |
+    server {
+        listen 80;
+        server_name _;
+
+        root /var/www/html;
+        index index.php;
+        error_page 404 /404.php;
+
+        charset utf-8;
+
+        location / {
+            try_files $uri $uri/ /index.php?$query_string;
+        }
+
+        location ~ \.(php|phar)(/.*)?$ {
+            fastcgi_split_path_info ^(.+\.(?:php|phar))(/.*)$;
+
+            fastcgi_intercept_errors on;
+            fastcgi_index index.php;
+
+            include fastcgi_params;
+
+            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            fastcgi_param PATH_INFO $fastcgi_path_info;
+
+            fastcgi_param HTTPS $https if_not_empty;
+
+            fastcgi_pass 127.0.0.1:9000;
+        }
+
+        location ~ /\. {
+            deny all;
+        }
+    }
