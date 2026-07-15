@@ -45,8 +45,8 @@ spec:
               subPath: default.conf
 
         - name: php-fpm
-          image: "{{ .Values.images.php-fpm.repository }}:{{ .Values.images.php-fpm.tag }}"
-          imagePullPolicy: {{ .Values.images.php-fpm.pullPolicy }}
+          image: "{{ .Values.images.php.repository }}:{{ .Values.images.php.tag }}"
+          imagePullPolicy: {{ .Values.images.php.pullPolicy }}
           volumeMounts:
             - name: webroot
               mountPath: /var/www

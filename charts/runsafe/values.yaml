@@ -28,7 +28,7 @@ images:
     pullPolicy: always
     tag: latest
 
-  php-fpm:
+  php:
     repository: php
     tag: 8.4-fpm-alpine
 
